@@ -13,7 +13,15 @@ import java.util.logging.Logger;
 public class CalcApp {
 	public Stack<String> tokenStack = new Stack<>();
 	public ArrayList<String> tokenArrayString = new ArrayList<>();
-
+	
+	private boolean isOperator(String str){
+		if("+".equals(str) || "/".equals(str) || "-".equals(str) || "x".equals(str)){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	private boolean isDouble(String s) {
 		boolean result = false;
 
@@ -42,9 +50,9 @@ public class CalcApp {
         			tokenArrayString.add(tokenStack.pop());
         		}
         		tokenStack.pop();
-        	} else if("+".equals(tokens[i]) || "/".equals(tokens[i]) || "-".equals(tokens[i]) || "x".equals(tokens[i])){
+        	} else if(isOperator(tokens[i])){
         		tokenStack.push(tokens[i]);
-        	} else if(isDouble(tokens[i]) == true){
+        	} else if(isDouble(tokens[i])){
         		tokenArrayString.add(tokens[i]);
         	} else {
         		Logger logger = Logger.getLogger("Error");
@@ -64,7 +72,7 @@ public class CalcApp {
         
         for(int i = 0; i < tokenArrayString.size(); i++){
         	String token = tokenArrayString.get(i);
-        	if("+".equals(token) || "/".equals(token) || "x".equals(token) || "-".equals(token)){
+        	if(isOperator(token)){
         		firstOperand = Double.parseDouble(tokenStack.pop());
         		secondOperand = Double.parseDouble(tokenStack.pop());
         		Operator operator = Operator.findOperator(token);
