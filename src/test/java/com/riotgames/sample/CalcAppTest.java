@@ -33,7 +33,7 @@ public class CalcAppTest
      */
     public void testApp()
     {
-	String[] testString={"2","+","5","+","4"};
+	String[] testString={"2","*","5","(","4"+"+"+"2"+")"};
 	CalcApp.main(testString);
         assertTrue( true );
     }
