@@ -19,9 +19,14 @@ public class CalcApp {
 
 		try {
 			double temp = Double.parseDouble(s);
-			if(Double.isNaN(temp)) return false;
+			if(Double.isNaN(temp)){
+				return false;
+			}
 			result = true;
 		} catch (Exception e) {
+    		Logger logger = Logger.getLogger("Exception");
+    		String except= e.toString();
+    		logger.log(Level.INFO,except);
 			result = false;
 		}
 		return result;
