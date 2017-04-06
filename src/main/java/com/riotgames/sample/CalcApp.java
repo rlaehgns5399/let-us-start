@@ -3,6 +3,8 @@ package com.riotgames.sample;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Calculator application
@@ -74,7 +76,8 @@ public class CalcApp {
         final CalcApp app = new CalcApp();
         final StringBuilder outputs = new StringBuilder();
         Arrays.asList(args).forEach(value -> outputs.append(value + " "));
-         System.err.print( "Addition of values: " + outputs + " = ");
-         System.err.println(app.calc(args));
+
+	Logger logger = Logger.getLogger("StringPrint");
+	logger.log(Level.INFO,"Addition of value : "+outputs+" = "+Double.toString(app.calc(args)));
     }
 }
