@@ -76,5 +76,6 @@ public class CalcApp {
     public static void main( String[] args ) {
         final CalcApp app = new CalcApp();
         final StringBuilder outputs = new StringBuilder();
+
     }
 }
