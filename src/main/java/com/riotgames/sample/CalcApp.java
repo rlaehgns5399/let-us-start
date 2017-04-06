@@ -9,8 +9,8 @@ import java.util.Stack;
  */
 
 public class CalcApp {
-	public Stack<String> token_stack = new Stack<String>();
-	public ArrayList<String> token_array_string = new ArrayList<String>();
+	public Stack<String> token_stack = new Stack<>();
+	public ArrayList<String> token_array_string = new ArrayList<>();
 	
 	private boolean isDouble(String s){
 		boolean result = false;
@@ -34,12 +34,12 @@ public class CalcApp {
         			token_array_string.add(token_stack.pop());
         		}
         		token_stack.pop();
-        	} else if(tokens[i].equals("+") || tokens[i].equals("/") || tokens[i].equals("-") || tokens[i].equals("x")){
+        	} else if("+".equals(tokens[i]) || "/".equals(tokens[i]) || "-".equals(tokens[i]) || "x".equals(tokens[i])){
         		token_stack.push(tokens[i]);
         	} else if(isDouble(tokens[i]) == true){
         		token_array_string.add(tokens[i]);
         	} else {
-        		System.out.println("Invaild Operator or Text");
+        		System.err.println("Invaild Operator or Text");
         		break;
         	}
         }
@@ -50,9 +50,9 @@ public class CalcApp {
         
         System.out.println("");
         for(int i = 0; i < token_array_string.size(); i++){
-        	System.out.print(token_array_string.get(i));
+        	System.err.print(token_array_string.get(i));
         }
-        System.out.println("");
+        System.err.println("");
         double firstOperand, secondOperand;
         
         for(int i = 0; i < token_array_string.size(); i++){
@@ -74,7 +74,7 @@ public class CalcApp {
         final CalcApp app = new CalcApp();
         final StringBuilder outputs = new StringBuilder();
         Arrays.asList(args).forEach(value -> outputs.append(value + " "));
-         System.out.print( "Addition of values: " + outputs + " = ");
-         System.out.println(app.calc(args));
+         System.err.print( "Addition of values: " + outputs + " = ");
+         System.err.println(app.calc(args));
     }
 }
