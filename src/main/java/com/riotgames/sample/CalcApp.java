@@ -76,6 +76,9 @@ public class CalcApp {
         final CalcApp app = new CalcApp();
         final StringBuilder outputs = new StringBuilder();
         Arrays.asList(args).forEach(value -> outputs.append(value + " "));
-        
+
+	Logger logger = Logger.getLogger("StringPrint");
+
+       	 
     }
 }
