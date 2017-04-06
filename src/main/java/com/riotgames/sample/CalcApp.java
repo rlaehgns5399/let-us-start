@@ -15,11 +15,12 @@ public class CalcApp {
 	public ArrayList<String> tokenArrayString = new ArrayList<>();
 	
 	private boolean isOperator(String str){
+		boolean result = false;
 		if("+".equals(str) || "/".equals(str) || "-".equals(str) || "x".equals(str)){
-			return true;
-		} else {
-			return false;
+			result = true;
 		}
+		
+		return result;
 	}
 	
 	private boolean isDouble(String s) {
