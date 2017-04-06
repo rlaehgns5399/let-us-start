@@ -13,26 +13,26 @@ import java.util.logging.Logger;
 public class CalcApp {
 	public Stack<String> token_stack = new Stack<>();
 	public ArrayList<String> token_array_string = new ArrayList<>();
-	
-	private boolean isDouble(String s){
+
+	private boolean isDouble(String s) {
 		boolean result = false;
-		
-		try{
+
+		try {
 			Double.parseDouble(s);
 			result = true;
-		} catch(Exception e){
+		} catch (Exception e) {
 			result = false;
 		}
 		return result;
 	}
-	
+
     public double calc(String[] tokens) {
         
         for(int i = 0; i < tokens.length; i++){
-        	if(tokens[i].equals("(")){
+        	if("(".equals(tokens[i])){
         		token_stack.push("(");
-        	} else if(tokens[i].equals(")")){
-        		while(!token_stack.peek().equals("(")){
+        	} else if(")".equals(tokens[i])){
+        		while(!"(".equals(token_stack.peek())){
         			token_array_string.add(token_stack.pop());
         		}
         		token_stack.pop();
@@ -50,17 +50,13 @@ public class CalcApp {
         	token_array_string.add(token_stack.pop());
         }
         
-        System.out.println("");
-        for(int i = 0; i < token_array_string.size(); i++){
-        	System.err.print(token_array_string.get(i));
-        }
-        System.err.println("");
+
         double firstOperand;
         double secondOperand;
         
         for(int i = 0; i < token_array_string.size(); i++){
         	String token = token_array_string.get(i);
-        	if(token.equals("+") || token.equals("/") || token.equals("-") || token.equals("x")){
+        	if("+".equals(token) || "/".equals(token) || "x".equals(token) || "-".equals(token)){
         		firstOperand = Double.parseDouble(token_stack.pop());
         		secondOperand = Double.parseDouble(token_stack.pop());
         		Operator operator = Operator.findOperator(token);

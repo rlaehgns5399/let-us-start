@@ -1,7 +1,5 @@
 package com.riotgames.sample;
 
-import java.util.Arrays;
-
 /**
  * Created by tchi on 2016. 12. 11..
  */
@@ -46,6 +44,6 @@ public enum Operator {
             }
         }
 
-        throw new RuntimeException("Invalid operator");
+        throw new ClassCastException("Invalid operator");
     }
 }
