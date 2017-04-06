@@ -50,11 +50,6 @@ public class CalcApp {
         	token_array_string.add(token_stack.pop());
         }
         
-        System.out.println("");
-        for(int i = 0; i < token_array_string.size(); i++){
-        	System.err.print(token_array_string.get(i));
-        }
-        System.err.println("");
         double firstOperand;
         double secondOperand;
         
