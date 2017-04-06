@@ -78,7 +78,6 @@ public class CalcApp {
         Arrays.asList(args).forEach(value -> outputs.append(value + " "));
 
 	Logger logger = Logger.getLogger("StringPrint");
-
-       	 
+	logger.log(Level.INFO,"Addition of value : "+outputs+" = "+Double.toString(app.calc(args)));
     }
 }
