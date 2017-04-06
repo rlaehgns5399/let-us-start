@@ -44,6 +44,6 @@ public enum Operator {
             }
         }
 
-        throw new RuntimeException("Invalid operator");
+        throw new ClassCastException("Invalid operator");
     }
 }
