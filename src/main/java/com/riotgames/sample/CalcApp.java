@@ -3,6 +3,8 @@ package com.riotgames.sample;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Calculator application
@@ -53,7 +55,8 @@ public class CalcApp {
         	System.err.print(token_array_string.get(i));
         }
         System.err.println("");
-        double firstOperand, secondOperand;
+        double firstOperand;
+        double secondOperand;
         
         for(int i = 0; i < token_array_string.size(); i++){
         	String token = token_array_string.get(i);
@@ -73,8 +76,11 @@ public class CalcApp {
     public static void main( String[] args ) {
         final CalcApp app = new CalcApp();
         final StringBuilder outputs = new StringBuilder();
-        Arrays.asList(args).forEach(value -> outputs.append(value + " "));
-	 log.debug("Addition of values: " + outputs + " = ");
-	 log.debug(app.calc(args));
+        Arrays.asList(args).forEach(value -> outputs.append(value + " "))
+	
+	Logger logger = Logger.getLogger("StringPrint");
+	
+	String result="Addition of value : "+outputs+" = "+Double.toString(app.calc(args));
+	logger.log(Level.INFO,result);
     }
 }
