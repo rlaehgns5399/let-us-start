@@ -23,7 +23,7 @@ public class CalcApp {
 				return false;
 			}
 			result = true;
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
     		Logger logger = Logger.getLogger("Exception");
     		String except= e.toString();
     		logger.log(Level.INFO,except);
