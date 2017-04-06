@@ -11,14 +11,15 @@ import java.util.logging.Logger;
  */
 
 public class CalcApp {
-	public Stack<String> token_stack = new Stack<>();
-	public ArrayList<String> token_array_string = new ArrayList<>();
+	public Stack<String> tokenStack = new Stack<>();
+	public ArrayList<String> tokenArrayString = new ArrayList<>();
 
 	private boolean isDouble(String s) {
 		boolean result = false;
 
 		try {
-			Double.parseDouble(s);
+			double temp = Double.parseDouble(s);
+			if(Double.isNaN(temp)) return false;
 			result = true;
 		} catch (Exception e) {
 			result = false;
@@ -30,43 +31,45 @@ public class CalcApp {
         
         for(int i = 0; i < tokens.length; i++){
         	if("(".equals(tokens[i])){
-        		token_stack.push("(");
+        		tokenStack.push("(");
         	} else if(")".equals(tokens[i])){
-        		while(!"(".equals(token_stack.peek())){
-        			token_array_string.add(token_stack.pop());
+        		while(!"(".equals(tokenStack.peek())){
+        			tokenArrayString.add(tokenStack.pop());
         		}
-        		token_stack.pop();
+        		tokenStack.pop();
         	} else if("+".equals(tokens[i]) || "/".equals(tokens[i]) || "-".equals(tokens[i]) || "x".equals(tokens[i])){
-        		token_stack.push(tokens[i]);
+        		tokenStack.push(tokens[i]);
         	} else if(isDouble(tokens[i]) == true){
-        		token_array_string.add(tokens[i]);
+        		tokenArrayString.add(tokens[i]);
         	} else {
-        		System.err.println("Invaild Operator or Text");
+        		Logger logger = Logger.getLogger("Error");
+        		String result="Invaild Operator";
+        		logger.log(Level.INFO,result);
         		break;
         	}
         }
         
-        while(!token_stack.isEmpty()){
-        	token_array_string.add(token_stack.pop());
+        while(!tokenStack.isEmpty()){
+        	tokenArrayString.add(tokenStack.pop());
         }
         
 
         double firstOperand;
         double secondOperand;
         
-        for(int i = 0; i < token_array_string.size(); i++){
-        	String token = token_array_string.get(i);
+        for(int i = 0; i < tokenArrayString.size(); i++){
+        	String token = tokenArrayString.get(i);
         	if("+".equals(token) || "/".equals(token) || "x".equals(token) || "-".equals(token)){
-        		firstOperand = Double.parseDouble(token_stack.pop());
-        		secondOperand = Double.parseDouble(token_stack.pop());
+        		firstOperand = Double.parseDouble(tokenStack.pop());
+        		secondOperand = Double.parseDouble(tokenStack.pop());
         		Operator operator = Operator.findOperator(token);
-        		token_stack.push(Double.toString(operator.evaluate(firstOperand, secondOperand)));
+        		tokenStack.push(Double.toString(operator.evaluate(firstOperand, secondOperand)));
         	} else {
-        		token_stack.push(token);
+        		tokenStack.push(token);
         	}
         }
         
-        return Double.parseDouble(token_stack.pop());
+        return Double.parseDouble(tokenStack.pop());
     }
 
     public static void main( String[] args ) {
@@ -74,9 +77,9 @@ public class CalcApp {
         final StringBuilder outputs = new StringBuilder();
         Arrays.asList(args).forEach(value -> outputs.append(value + " "));
 	
-	Logger logger = Logger.getLogger("StringPrint");
-	
-	String result="Addition of value : "+outputs+" = "+Double.toString(app.calc(args));
-	logger.log(Level.INFO,result);
+		Logger logger = Logger.getLogger("StringPrint");
+		
+		String result="Addition of value : "+outputs+" = "+Double.toString(app.calc(args));
+		logger.log(Level.INFO,result);
     }
 }
