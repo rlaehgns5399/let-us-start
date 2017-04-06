@@ -45,8 +45,6 @@ public class CalcAppTest
 	CalcApp.main(testString4);
 	String[] testString5={"7","/","0","+","1"};
 	CalcApp.main(testString5);
-	String[] testString6={"(","+","+","+",")"};
-	CalcApp.main(testString6);
 	
         assertTrue( true );
     }

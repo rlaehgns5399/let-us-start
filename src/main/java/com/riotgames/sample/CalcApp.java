@@ -2,6 +2,7 @@ package com.riotgames.sample;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,8 +12,8 @@ import java.util.logging.Logger;
  */
 
 public class CalcApp {
-	public Stack<String> tokenStack = new Stack<>();
-	public ArrayList<String> tokenArrayString = new ArrayList<>();
+	private Stack<String> tokenStack = new Stack<>();
+	private List<String> tokenArrayString = new ArrayList<>();
 	
 	private boolean isOperator(String str){
 		boolean result = false;
