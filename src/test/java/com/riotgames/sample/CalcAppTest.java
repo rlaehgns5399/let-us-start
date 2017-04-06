@@ -35,6 +35,10 @@ public class CalcAppTest
     {
 	String[] testString={"2","*","5","(","4"+"+"+"2"+")"};
 	CalcApp.main(testString);
+
+	testString={"1","+","2","*","3"}
+	CalcApp.main(testString);
+
         assertTrue( true );
     }
 }
