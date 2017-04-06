@@ -36,19 +36,17 @@ public class CalcAppTest
 	String[] testString={"2","x","5","(","4","+","2",")"};
 	CalcApp.main(testString);
 
-	String[] testString2={"1","+","2","*","3"};
+	String[] testString2={"1","+","2","x","3"};
 	CalcApp.main(testString2);
 
-	String[] testString3={"1","+","/","x","3"};
+	String[] testString3={"1","+","3","x","3"};
 	CalcApp.main(testString3);
-	String[] testString4={"(","+","6","x","4", ")"};
+	String[] testString4={"(", "6","x","4", ")"};
 	CalcApp.main(testString4);
 	String[] testString5={"7","/","0","+","1"};
 	CalcApp.main(testString5);
-	String[] testString6={"(","+","+","+","+"};
+	String[] testString6={"(","+","+","+",")"};
 	CalcApp.main(testString6);
-	String[] testString7={"(","+","a","+",")"};
-	CalcApp.main(testString7);
 	
         assertTrue( true );
     }
