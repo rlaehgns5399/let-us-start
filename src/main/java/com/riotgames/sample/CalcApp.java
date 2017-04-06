@@ -79,7 +79,7 @@ public class CalcApp {
 	
 	Logger logger = Logger.getLogger("StringPrint");
 	
-	String result="Addition of value : "+outputs+" = "+Double.toString(app.cakc(args));
+	String result="Addition of value : "+outputs+" = "+Double.toString(app.calc(args));
 	logger.log(Level.INFO,result);
     }
 }
