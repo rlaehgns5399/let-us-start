@@ -33,6 +33,8 @@ public class CalcAppTest
      */
     public void testApp()
     {
+	String[] testString={"2","+","5","+","4"};
+	calc.main(testString);
         assertTrue( true );
     }
 }
