@@ -55,7 +55,8 @@ public class CalcApp {
         	System.err.print(token_array_string.get(i));
         }
         System.err.println("");
-        double firstOperand, secondOperand;
+        double firstOperand;
+        double secondOperand;
         
         for(int i = 0; i < token_array_string.size(); i++){
         	String token = token_array_string.get(i);
