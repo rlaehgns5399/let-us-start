@@ -13,19 +13,19 @@ import java.util.logging.Logger;
 public class CalcApp {
 	public Stack<String> token_stack = new Stack<>();
 	public ArrayList<String> token_array_string = new ArrayList<>();
-	
-	private boolean isDouble(String s){
+
+	private boolean isDouble(String s) {
 		boolean result = false;
-		
-		try{
+
+		try {
 			Double.parseDouble(s);
 			result = true;
-		} catch(Exception e){
+		} catch (Exception e) {
 			result = false;
 		}
 		return result;
 	}
-	
+
     public double calc(String[] tokens) {
         
         for(int i = 0; i < tokens.length; i++){
