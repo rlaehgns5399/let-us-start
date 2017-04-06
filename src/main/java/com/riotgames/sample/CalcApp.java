@@ -74,7 +74,7 @@ public class CalcApp {
         final CalcApp app = new CalcApp();
         final StringBuilder outputs = new StringBuilder();
         Arrays.asList(args).forEach(value -> outputs.append(value + " "));
-         System.err.print( "Addition of values: " + outputs + " = ");
-         System.err.println(app.calc(args));
+	 log.debug("Addition of values: " + outputs + " = ");
+	 log.debug(app.calc(args));
     }
 }
